@@ -1,0 +1,73 @@
+// Given two sets of elements, find the sum of all distinct elements from the set. In other words, find the sum of all elements which are present in either of the given set.
+// Example:
+// Set 1 : [3, 1, 7, 9], Set 2: [2, 4, 1, 9, 3]
+// Output: 13 (distinct elements 4, 7, 2 )
+// Give a solutions to this problem, using arrays
+
+
+Set 1 := [3, 1, 7, 9]
+Set 2 := [2, 4, 1, 9, 3]
+
+FUNCTION sum_of_distinct_elements(set 1, set 2) : INTEGER
+VAR
+    i, j : Index
+    D_E : ARRAY_OF INTEGER
+    sum := 0
+BEGIN
+    WHILE (sum = 0) DO
+        FOR i FROM 0 TO set 1.length  DO
+            IF (set 1[i] not in set 2) THEN
+                add set 1[i] to D_E
+            END_IF
+        END_FOR
+
+        FOR i FROM 0 TO set 2.length DO
+            IF (set 2[i] not in set 1) THEN
+                add set 2[i] to D_E
+            END_IF
+        END_FOR
+
+    END_WHILE
+    
+    FOR i FROM 0 TO D_E.length DO
+        sum:= sum + D_E[i]
+    END_FOR
+    RETURN sum;
+END
+
+
+
+//Write a procedure, called dot_product which calculates in the variable ps, the dot(scalar) product of v1 and v2 (v1 and v2 are vectors of IR)
+//Write an algorithm which determines, for n pairs of given vectors, whether two vectors of given IR are orthogonal, by calling the procedure defined in the previous question. The dot product of two orthogonal vectors is zero.
+//Modify the previous algorithm if you use a dot_product function instead of a procedure.
+
+
+
+PROCEDURE dot_product(vector1, vector2) 
+VAR
+    i : Index
+    ps := 0  // initialize ps to store the results of the products.
+BEGIN
+    FOR i FROM 0 TO vectors.length  DO //iterate over every element in the vectors array
+        ps := vector1[i] * vector2[i]  
+    END_FOR
+    RETURN dot_product
+END
+
+FUNCTION orthogonal_vectors(n, vectors) 
+VAR
+    orthogonal := FALSE  // set orthogonal to false
+BEGIN
+    FOR i FROM 0 TO vectors.length  DO
+        vector1 := vectors[i][0]
+        vector2 := vectors[i][1]
+            dot := dot_product(vector1,vector2)
+    END_FOR
+    RETURN dot
+        IF (dot == 0) THEN  // If result of dot_product is 0 then set orthogonal to true.
+            orthogonal := TRUE
+        END_IF
+        RETURN orthogonal
+END
+
+
